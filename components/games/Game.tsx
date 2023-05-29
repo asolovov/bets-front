@@ -20,7 +20,7 @@ const stages = {
 const Game = ({game, signer, handleJoinGame}: {game: GameType, signer: string | null, handleJoinGame: Function}) => {
     const user1 = game.user1.substring(0, 4) + '...' + game.user1.substring(game.user1.length - 4, game.user1.length)
     const user2 = game.user2.substring(0, 4) + '...' + game.user2.substring(game.user2.length - 4, game.user2.length)
-    const canJoin = game.user2 === ethers.constants.AddressZero && game.user1 === signer;
+    const canJoin = game.user2 === ethers.constants.AddressZero && game.user1 !== signer;
     let winner = game.winner === ethers.constants.AddressZero ? "No winner yet" : game.winner
     winner = winner.substring(0, 4) + '...' + winner.substring(winner.length - 4, winner.length)
 
